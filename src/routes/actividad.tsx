@@ -1,0 +1,3 @@
+import { createFileRoute } from '@tanstack/react-router';
+import { Activity } from '@/components/smartclub/workspace';
+export const Route = createFileRoute('/actividad')({head:()=>({meta:[{title:'Actividad y aprendizaje · SmartClub'},{name:'description',content:'Historial de decisiones, preferencias y resultados SmartClub.'},{property:'og:title',content:'Actividad y aprendizaje · SmartClub'},{property:'og:description',content:'Historial de decisiones, preferencias y resultados SmartClub.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary_large_image'}]}),component:Activity});

@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccionesRouteImport } from './routes/acciones'
+import { Route as ActividadRouteImport } from './routes/actividad'
+import { Route as ClientesRouteImport } from './routes/clientes'
+import { Route as MiClubRouteImport } from './routes/mi-club'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccionesRoute = AccionesRouteImport.update({
+  id: '/acciones',
+  path: '/acciones',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActividadRoute = ActividadRouteImport.update({
+  id: '/actividad',
+  path: '/actividad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientesRoute = ClientesRouteImport.update({
+  id: '/clientes',
+  path: '/clientes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MiClubRoute = MiClubRouteImport.update({
+  id: '/mi-club',
+  path: '/mi-club',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/acciones': typeof AccionesRoute
+  '/actividad': typeof ActividadRoute
+  '/clientes': typeof ClientesRoute
+  '/mi-club': typeof MiClubRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/acciones': typeof AccionesRoute
+  '/actividad': typeof ActividadRoute
+  '/clientes': typeof ClientesRoute
+  '/mi-club': typeof MiClubRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/acciones': typeof AccionesRoute
+  '/actividad': typeof ActividadRoute
+  '/clientes': typeof ClientesRoute
+  '/mi-club': typeof MiClubRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/acciones' | '/actividad' | '/clientes' | '/mi-club'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/acciones' | '/actividad' | '/clientes' | '/mi-club'
+  id: '__root__' | '/' | '/acciones' | '/actividad' | '/clientes' | '/mi-club'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccionesRoute: typeof AccionesRoute
+  ActividadRoute: typeof ActividadRoute
+  ClientesRoute: typeof ClientesRoute
+  MiClubRoute: typeof MiClubRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +88,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/acciones': {
+      id: '/acciones'
+      path: '/acciones'
+      fullPath: '/acciones'
+      preLoaderRoute: typeof AccionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/actividad': {
+      id: '/actividad'
+      path: '/actividad'
+      fullPath: '/actividad'
+      preLoaderRoute: typeof ActividadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clientes': {
+      id: '/clientes'
+      path: '/clientes'
+      fullPath: '/clientes'
+      preLoaderRoute: typeof ClientesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mi-club': {
+      id: '/mi-club'
+      path: '/mi-club'
+      fullPath: '/mi-club'
+      preLoaderRoute: typeof MiClubRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccionesRoute: AccionesRoute,
+  ActividadRoute: ActividadRoute,
+  ClientesRoute: ClientesRoute,
+  MiClubRoute: MiClubRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
