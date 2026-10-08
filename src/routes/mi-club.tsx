@@ -1,0 +1,3 @@
+import { createFileRoute } from '@tanstack/react-router';
+import { CustomerPortal } from '@/components/smartclub/customer-portal';
+export const Route = createFileRoute('/mi-club')({head:()=>({meta:[{title:'Mi SmartClub · SmartClub'},{name:'description',content:'Tus preferencias, tus compras y tus beneficios en un solo club.'},{property:'og:title',content:'Mi SmartClub · SmartClub'},{property:'og:description',content:'Tus preferencias, tus compras y tus beneficios en un solo club.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary_large_image'}]}),component:CustomerPortal});
